@@ -1,6 +1,16 @@
+/*
+ * Animation.java           Feb 13, 2016
+ */
+
 package komorebi.jenkins.engine;
 
-
+/**
+ * Represents a set of pictures
+ * 
+ * @author Aaron Roy
+ * @version 0.0.2.0
+ * 
+ */
 public class Animation {
 	
 	private int frames;
@@ -16,13 +26,15 @@ public class Animation {
 	/**
 	 * Creates a playable animation
 	 * 
-	 * @param f - Max number of frames
-	 * @param t - Time till next frame in frames
-	 * @param x - x location for the animation
-	 * @param y - y location for the animation
-	 * @param sx - size x for the animation *used to calculate other tex coordinates too
-	 * @param sy - size y for the animation *used to calculate other tex coordinates too
-	 * @param ID - The Texture ID
+	 * @param f Max number of frames
+	 * @param t Time till next frame in frames
+	 * @param x x location for the animation
+	 * @param y y location for the animation
+	 * @param sx size x for the animation 
+	 *             *used to calculate other tex coordinates too
+	 * @param sy size y for the animation 
+	 *             *used to calculate other tex coordinates too
+	 * @param ID The Texture ID
 	 */
 	public Animation(int f, int t, float sx, float sy, int ID){
 		frames = f;
@@ -47,7 +59,7 @@ public class Animation {
 	}
 	
 	public void play(float x, float y){
-		Draw.drawRect(x, y, sx, sy, texx[currFrame], texy[currFrame], texx[currFrame]+(int)sx, texy[currFrame]+(int)sy, texID);
+		Draw.rect(x, y, sx, sy, texx[currFrame], texy[currFrame], texx[currFrame]+(int)sx, texy[currFrame]+(int)sy, texID);
 		
 		counter++;
 		if(counter>time){

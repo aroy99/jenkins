@@ -26,19 +26,20 @@ public class Agent extends Enemy {
 		this.color = color;
 		this.size = size;
 		
-		if      (GameHandler.getDifficulty()==Difficulty.EASY)    framesPerShot = 60;
-		else if (GameHandler.getDifficulty()==Difficulty.NORMAL)  framesPerShot = 45;
-		else if (GameHandler.getDifficulty()==Difficulty.HARD)    framesPerShot = 30;
-		else if (GameHandler.getDifficulty()==Difficulty.LUNATIC) framesPerShot = 120;
+		if      (GameHandler.getDifficulty()==Difficulty.EASY)    framesPerShot = 120;
+		else if (GameHandler.getDifficulty()==Difficulty.NORMAL)  framesPerShot = 90;
+		else if (GameHandler.getDifficulty()==Difficulty.HARD)    framesPerShot = 60;
+		else if (GameHandler.getDifficulty()==Difficulty.LUNATIC) framesPerShot = 30;
 
 	}
 	
 	public void attack() {
 		Enemy.getAimedBullet().shootAimed(x, y, size, color, Game.getPlayer(), 2);
+		System.out.println("Bullet Fired");
 	}
 	
 	public void render() {
-		Draw.drawRect(x, y, 17, 29, 149, 0, 166, 29, 0);
+		Draw.rect(x, y, 17, 29, 149, 0, 166, 29, 0);
 	}
 
 	@Override

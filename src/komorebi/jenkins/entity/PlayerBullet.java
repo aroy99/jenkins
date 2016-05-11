@@ -1,19 +1,24 @@
+/*
+ * PlayerBullet.java           Feb 13, 2016
+ */
+
 package komorebi.jenkins.entity;
 
 import komorebi.jenkins.engine.Draw;
 
-public class PlayerBullet extends Bullets{
+/**
+ * A bullet shot by the player
+ * 
+ * @author Aaron Roy
+ * @version 0.0.2.0
+ * 
+ */
+public class PlayerBullet extends Entity{
 
 	float hitsx, hitsy;
-	public PlayerBullet(float x, float y, BulletColor color) {
-		super(x, y, BulletSize.PLAYER, color);
+	public PlayerBullet(float x, float y) {
+		super(x, y, 4,7);
 		dy = 5;
-	}
-
-	@Override
-	public boolean collided() {
-		// TODO Auto-generated method stub
-		return false;
 	}
 
 	@Override
@@ -24,7 +29,7 @@ public class PlayerBullet extends Bullets{
 
 	@Override
 	public void render() {
-		Draw.drawRect(x, y, sx, sy, 48, 38, 52, 45, 0);
+		Draw.rect(x, y, sx, sy, 48, 38, 52, 45, 0);
 		
 	}
 

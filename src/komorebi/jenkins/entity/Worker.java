@@ -1,9 +1,20 @@
+/*
+ * Worker.java           Feb 13, 2016
+ */
+
 package komorebi.jenkins.entity;
 
 import komorebi.jenkins.engine.Difficulty;
 import komorebi.jenkins.engine.Draw;
 import komorebi.jenkins.engine.GameHandler;
 
+/**
+ * The Worker enemy, can be male or female
+ * 
+ * @author Aaron Roy
+ * @version 0.0.2.0
+ * 
+ */
 public class Worker extends Enemy {
 	
 	Bullets.BulletColor color;
@@ -32,7 +43,7 @@ public class Worker extends Enemy {
 	}
 	
 	public void render() {
-		Draw.drawRect(x, y, 16, 24, 0, 0, 16, 24, 0);
+		Draw.rect(x, y, 16, 24, 0, 0, 16, 24, 0);
 	}
 
 	public void kill() {

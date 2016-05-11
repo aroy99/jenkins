@@ -26,7 +26,7 @@ public class Draw {
     protected static boolean texLoaded;
     private static Texture[] tex = new Texture[2];
     
-	public static void drawRect(float x, float y, float sx, float sy, int texx, int texy, int texsx, int texsy, int texID) {
+	public static void rect(float x, float y, float sx, float sy, int texx, int texy, int texsx, int texsy, int texID) {
 		glPushMatrix();
 		{
 		    if(!texLoaded){
@@ -68,11 +68,16 @@ public class Draw {
 		}
 	}
 	
-	public static void drawRectAtAngle(float x, float y, float sx, float sy, int texx, int texy, int texsx, int texsy, int texID, float angle) {
+	public static void rect(float x, float y, float sx, float sy, int texx, int texy, int texsx, int texsy, int texID, float angle) {
 		glPushMatrix();
 		{
-	         int imgX = tex[texID].getImageWidth();
-	         int imgY = tex[texID].getImageHeight();
+		    if(!texLoaded){
+                loadTextures();
+                texLoaded =true;
+            }
+		    
+	        int imgX = tex[texID].getImageWidth();
+	        int imgY = tex[texID].getImageHeight();
 		    
 			glTranslatef((int) x, (int) y, 0);
 			glRotatef(angle, 0.0f, 0.0f, 1.0f);

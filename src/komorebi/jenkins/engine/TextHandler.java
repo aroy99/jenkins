@@ -37,7 +37,7 @@ public class TextHandler {
 	    int row = 0;
 	    int column = 0;
 	    	    
-	    Draw.drawRect(0,0, 272, 96, 0, 160, 272, 256, 0);
+	    Draw.rect(0,0, 272, 96, 0, 160, 272, 256, 0);
 		for (int i=0; i<index; i++) {
 						
 			if (chars[i]=='/') {
@@ -50,7 +50,7 @@ public class TextHandler {
 				int x = DIALOGUE_LEFT + HORIZ_SCALE * column + column++;
 				int y = DIALOGUE_TOP - row * TILE_SIZE;
 				
-				Draw.drawRect(x, y-12, HORIZ_SCALE, VERT_SCALE, texX, texY, texX+HORIZ_SCALE, texY+VERT_SCALE, 0);
+				Draw.rect(x, y-12, HORIZ_SCALE, VERT_SCALE, texX, texY, texX+HORIZ_SCALE, texY+VERT_SCALE, 0);
 			}
 		}
 		

@@ -1,9 +1,20 @@
+/*
+ * AimedBullet.java           Feb 13, 2016
+ */
+
 package komorebi.jenkins.entity;
 
-import komorebi.jenkins.engine.Draw;
 import komorebi.jenkins.engine.Physics;
 import komorebi.jenkins.states.Game;
 
+
+/**
+ * A bullet fired towards the players position
+ * 
+ * @author Aaron Roy
+ * @version 0.0.2.0
+ * 
+ */
 public class AimedBullet extends Bullets {
 	
 	Player target;
@@ -72,12 +83,6 @@ public class AimedBullet extends Bullets {
 		oy+=dy;
 		
 		if(Physics.checkPlayer(Game.getPlayer(),this))System.out.println("You ded");
-	}
-
-	@Override
-	public void render() {
-
-		Draw.drawRect(x, y, 29, 29, 0, 67, 29, 96, 0);
 	}
 
 	@Override

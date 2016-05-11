@@ -1,9 +1,20 @@
+/*
+ * Menu.java           Feb 13, 2016
+ */
+
 package komorebi.jenkins.states;
 
 import komorebi.jenkins.engine.Draw;
 
 import org.lwjgl.input.Keyboard;
 
+/**
+ * The Menu State, doesn't quite work yet
+ * 
+ * @author Aaron Roy
+ * @version 0.0.2.0
+ * 
+ */
 public class Menu extends GameState {
 
 	public MenuItem selectedMenuItem;
@@ -31,7 +42,7 @@ public class Menu extends GameState {
 
 
 	public void render() {
-		Draw.drawRect(0, 0, 482, 320, 0, 0, 482, 320, 1);
+		Draw.rect(0, 0, 482, 320, 0, 0, 482, 320, 1);
 		
 	}
 

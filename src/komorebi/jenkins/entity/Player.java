@@ -1,7 +1,5 @@
 /*
- * Player.java Author: Aaron Roy
- * 
- * Represents the player
+ * Player.java            Feb 13, 2016
  */
 
 package komorebi.jenkins.entity;
@@ -11,6 +9,13 @@ import komorebi.jenkins.states.Game;
 
 import org.lwjgl.input.Keyboard;
 
+/**
+ * Represents the player
+ * 
+ * @author Aaron Roy
+ * @version 0.0.2.0
+ * 
+ */
 public class Player extends Entity{
 
 	boolean up,down,left,right;
@@ -106,7 +111,7 @@ public class Player extends Entity{
 		
 		shootCounter++;
 		if(isShooting && shootCounter >3){
-			Game.getBullets().add(new PlayerBullet(x+11, y+24, Bullets.BulletColor.RED));
+			Game.getBullets().add(new PlayerBullet(x+11, y+24));
 			shootCounter=0;
 		}
 		
