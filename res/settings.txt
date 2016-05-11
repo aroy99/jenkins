@@ -1,0 +1,2 @@
+#The size of the game, as an int
+1
