@@ -19,8 +19,8 @@ public class Physics {
 	{
 		if (e instanceof Bullets)
 		{
-			float distance = (float)Math.sqrt((play.getOX()-e.getOx())*(play.getOX()-e.getOx())+(play.getOY()-e.getOy())*(play.getOY()-e.getOy()));
-			if(distance<50)System.out.println(""+distance+", "+e.getRadius());
+			float distance = (float)Math.sqrt((play.getOx()-e.getOx())*(play.getOx()-e.getOx())+(play.getOy()-e.getOy())*(play.getOy()-e.getOy()));
+			if(distance<20 && e.getRadius()<=distance)System.out.println(""+distance+", "+e.getRadius());
 			if (e.getRadius()>distance)
 			{
 				return true;

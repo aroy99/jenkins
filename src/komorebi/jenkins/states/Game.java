@@ -31,13 +31,19 @@ public class Game extends GameState{
     public static ArrayList<PlayerBullet> bullets;
     public static ArrayList<Enemy> enemies;
     TextHandler text;
+    
+    public boolean hasSummoned = true;
 
     public Game(){
         play = new Player();
         bullets = new ArrayList<PlayerBullet>();
         enemies = new ArrayList<Enemy>();
         text = new TextHandler(0,96);
-        text.write("THE QUICK BROWN FOX JUMPED OVER THE/LAZY DOG!?,.\'\"1234567890");
+        text.write("WHAT'S  UP,  CHUMP?   YOU  WANT  TO/"
+                  +"TUSSLE?  OR DO  YOU WANT  A KNUCKLE/"
+                  +"SANDWICH? I CAN GO SUPER SAIYAN, SO/"
+                  +"WATCH  YOUR  STEP OR YOU  WILL  GET/"
+                  +"PUMMELED TO DEATH YOU LITTLE SCRUB!/");
         Enemy.loadBullets();
         AudioHandler.init();
 
@@ -48,9 +54,10 @@ public class Game extends GameState{
     @Override
     public void getInput() {
         play.getInput();
-        if(Keyboard.isKeyDown(Keyboard.KEY_A)){
+        if(Keyboard.isKeyDown(Keyboard.KEY_A) && !hasSummoned){
             enemies.add(new Agent(0, -1,10, Bullets.BulletColor.BLUE, 250, Bullets.BulletSize.LARGE));
-        }
+            hasSummoned = true;
+        }else hasSummoned = false;
 
     }
 

@@ -15,7 +15,7 @@ public class TextHandler {
 	
 	final int TILE_SIZE = 16;
 	
-	final int DIALOGUE_TOP = 90;
+	final int DIALOGUE_TOP = 78;
 	final int DIALOGUE_LEFT = 9;
 	
 	int index = 0;
@@ -50,7 +50,10 @@ public class TextHandler {
 				int x = DIALOGUE_LEFT + HORIZ_SCALE * column + column++;
 				int y = DIALOGUE_TOP - row * TILE_SIZE;
 				
-				Draw.rect(x, y-12, HORIZ_SCALE, VERT_SCALE, texX, texY, texX+HORIZ_SCALE, texY+VERT_SCALE, 0);
+				Draw.rect(x, y, HORIZ_SCALE, VERT_SCALE, texX, texY, texX+HORIZ_SCALE, texY+VERT_SCALE, 0);
+				
+				if(chars[i] == '\"')Draw.rect(x+3, y, HORIZ_SCALE, VERT_SCALE, texX, texY, texX+HORIZ_SCALE, texY+VERT_SCALE, 0);
+
 			}
 		}
 		
@@ -100,8 +103,11 @@ public class TextHandler {
 		case 'M':case 'Z':case '0':
 			texX = leftX + HORIZ_SCALE * 12;
 			break;
+		case '\'':case ',':case ':':case '"':
+		    texX = leftX + HORIZ_SCALE * 13;
+		    break;
 		default:
-			texX = leftX + HORIZ_SCALE * 13;
+			texX = leftX + HORIZ_SCALE * 14;
 			break;
 		}
 		
@@ -113,16 +119,17 @@ public class TextHandler {
 		int texY = 0;
 		
 		switch (s) {
-		case 'A':case 'B':case 'C':case 'D':case 'E':case 'F':
-		case 'G':case 'H':case 'I':case 'J':case 'K':case 'L':case 'M':
+		case 'A':case 'B':case 'C':case 'D':case 'E':case 'F':case 'G':
+		case 'H':case 'I':case 'J':case 'K':case 'L':case 'M':case '\'':
+		case '"':
 			texY = topY + VERT_SCALE*0;
 			break;
-		case 'N':case 'O':case 'P':case 'Q':case 'R':case 'S':
-		case 'T':case 'U':case 'V':case 'W':case 'X':case 'Y':case 'Z':
+		case 'N':case 'O':case 'P':case 'Q':case 'R':case 'S':case 'T':
+		case 'U':case 'V':case 'W':case 'X':case 'Y':case 'Z':case ',':
 			texY = topY + VERT_SCALE*1;
 			break;
-		case '.':case '!':case '?':case '1':case '2':case '3':
-		case '4':case '5':case '6':case '7':case '8':case '9':case '0':
+		case '.':case '!':case '?':case '1':case '2':case '3':case '4':
+		case '5':case '6':case '7':case '8':case '9':case '0':case ':':
 			texY = topY + VERT_SCALE*2;
 			break;
 		default:

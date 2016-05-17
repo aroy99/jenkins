@@ -27,15 +27,20 @@ public class AimedBullet extends Bullets {
 		super(x, y, size, color);
 		this.target = target;
 		
-		targetX=target.getX();
-		targetY=target.getY();
-		
-		float trix = x-targetX;
-		float triy = y-targetY;
+        ox=x+sx/2;
+        oy=y+sy/2;
+
+        targetX=target.getOx();
+        targetY=target.getOy();
+        
+        float trix = ox-targetX;
+        float triy = oy-targetY;
 		
 		theta = Math.atan(triy/trix);
 		dy = (float) Math.sin(theta) * speed;
 		dx = (float) Math.cos(theta) * speed;
+		
+	    radius=sx/2;
 		
 	}
 
@@ -51,19 +56,21 @@ public class AimedBullet extends Bullets {
 		this.x = x;
 		this.y = y;
 		
-		targetX=target.getX();
-		targetY=target.getY();
+        ox=x+sx/2;
+        oy=y+sy/2;
+
 		
-		float trix = x-targetX;
-		float triy = y-targetY;
+		targetX=target.getOx();
+		targetY=target.getOy();
+		
+		float trix = ox-targetX;
+		float triy = oy-targetY;
 		
 		theta = Math.atan(triy/trix);
 		dy = (float) Math.sin(theta) * speed;
 		dx = (float) Math.cos(theta) * speed;
 		
 		this.isVisible = true;
-		ox=x+sx/2;
-		oy=y+sy/2;
 		radius=sx/2;
 		this.color = color;
 		this.size = size;
